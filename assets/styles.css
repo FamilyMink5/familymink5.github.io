@@ -1,0 +1,283 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 40px; /* 원하는 크기로 조정 */
+}
+
+h2 {
+    font-size: 35px; /* 고정된 크기 */
+}
+
+h3 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 25px; /* 고정된 크기 */
+}
+
+/* Mailto 링크 색상 조정 */
+a[href^="mailto:"] {
+    color: #3366cc; /* 원하는 색상 코드로 변경 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+a[href^="mailto:"]:hover {
+    color: #0044bb; /* 호버 시 색상 */
+    text-decoration: underline; /* 호버 시 밑줄 */
+}
+
+a[href^="/policy/"] {
+    color: #3366cc; /* 원하는 색상 코드로 변경 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+a[href^="/policy/"]:hover {
+    color: #0044bb; /* 호버 시 색상 */
+    text-decoration: underline; /* 호버 시 밑줄 */
+}
+
+/* 리스트 스타일 조정 */
+ul, ol {
+    list-style-position: inside; /* 리스트 번호와 내용이 중앙으로 정렬되도록 설정 */
+    margin-left: 0; /* 기본 마진 제거 */
+    padding-left: 20px; /* 중앙에서 약간 왼쪽으로 리스트 아이콘 위치 */
+    text-align: left; /* 리스트 텍스트는 좌측 정렬로 설정 */
+}
+
+.top-bar {
+    background-color: #1e1e1e;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.top-bar.pinned {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.site-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 20px;
+    white-space: nowrap;
+}
+
+.pin-button {
+    background-color: #2c2c2c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.pin-button:hover {
+    background-color: #444444;
+}
+
+.top-bar.hidden {
+    transform: translateY(-100%);
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-right: 20px;
+}
+
+.btn-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    max-width: 200px;
+    transition: max-width 0.3s ease;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    background-color: #2c2c2c;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px; 
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.btn img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease;
+}
+
+.btn-description {
+    color: #fff;
+    font-size: 1em;
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease, max-width 0.3s ease;
+    margin-left: 10px;
+    max-width: 0;
+    overflow: hidden;
+}
+
+.btn-container:hover .btn-description {
+    opacity: 1;
+    max-width: 150px;
+}
+
+.btn-container:hover {
+    max-width: 300px;
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 10;
+    transition: margin-top 0.3s ease;
+    text-align: center;
+    font-size: 18px
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+}
+
+.text-section {
+    flex: 1;
+    transition: transform 0.3s ease; /* 텍스트가 부드럽게 이동 */
+}
+
+.image-section {
+    flex: 1;
+    position: relative;
+    overflow: hidden; /* 이미지가 컨테이너 안에만 보이도록 */
+}
+
+.image-link {
+    display: inline-block;
+    width: 80%; /* 기본 이미지 크기를 80%로 설정 */
+    transition: width 0.3s ease, height 0.3s ease; /* 크기 변화 애니메이션 */
+    border-radius: 10px;
+}
+
+.image-link img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-link:hover {
+    width: 100%; /* 마우스 호버 시 이미지가 100% 크기로 확장 */
+}
+
+.image-link-description {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-link:hover .image-link-description {
+    opacity: 1; /* 호버 시 링크 설명 표시 */
+}
+
+footer {
+    margin-top: 60px;
+    font-size: 1em;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    /* 모바일 환경에서의 스타일 조정 */
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    .top-bar {
+        display: none;
+    }
+
+    .site-title {
+        display: none;
+    }
+
+    body {
+        background-color: #121212;
+        font-size: 0.9rem; /* 모바일에서 전체 글자 크기 감소 */
+    }
+
+    .pin-button {
+        display: none;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .btn-container {
+        display: none;
+    }
+
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-section,
+    .image-section {
+        width: 100%;
+    }
+
+    .image-link {
+        width: 90%; /* 모바일에서 이미지 크기 조정 */
+    }
+}
